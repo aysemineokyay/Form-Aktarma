@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Aktarma</title>
+ <style>
+
+#onayTablosu, tr, td, th{
+        border: 1px solid black;
+        background-color:rgb(247, 234, 219);
+           }   
+table#onayTablosu{
+  border: 2px solid black;
+}
+.formTable tr td{
+  border: 0px solid white;
+  background-color: white;
+}  
+ </style>
+</head>
+<body>
+
+        <h1>Kişiye Özel Tişört Sipariş Aracı</h1>
+        <hr>
+        <p>Lütfen oluşturmak istediğiniz siparişe ilişkin aşağıdaki bilgileri doldurunuz;      
+        </p>
+<form id="form">
+          
+  <h2>Kişisel Bilgiler</h2>
+  <table class="formTable">
+    <tr>
+      <td><label for="name">Adınız: </label></td>
+      <td><input type="text" id="name" name="name" required></td>
+    </tr>
+    <tr>      
+      <td><label for="surname">Soyadınız: </label> </td>
+      <td><input type="text" id="surname" name="surname" required></td>
+    </tr>
+    <tr>
+      <td> <label for="birthday">Doğum Tarihiniz: </label></td>
+      <td> <input type="date" id="birthday" name="birthday" placeholder="gg.aa.yyyy" required></td>
+    </tr>
+    <tr>
+      <td><label for="email">Mail Adresiniz: </label></td>
+      <td><input type="email" id="email" name="email" required></td>
+    </tr>
+    <tr>
+      <td> <label for="phone">Telefon: </label></td>
+      <td>  <input type="tel" id="phone" name="phone" placeholder="5XX-XXX-XXXX" required></td>
+    </tr>
+  </table>
+    <br>           
+   <hr>
+  <h2>Sipariş Bilgileri</h2>    
+  <table class="formTable">
+    <tr>
+      <td>  <label for="color">Tişört Rengi: </label></td>
+      <td> <input type="color" id="color" name="color" required><br></td>
+    </tr>
+    <tr>
+      <td>  <label for="fontColor">Yazı Rengi: </label></td>
+      <td>  <input type="color" id="fontColor" name="fontColor" required></td>
+    </tr>
+    <tr>
+      <td>  <label for="textTshirt">Tişört üzerinde yazacak yazıyı girin: </label></td>
+      <td> <input type="text" id="textTshirt" name="textTshirt" required><br/></td>
+    </tr>
+    <tr>
+      <td> <label for="num">Tişört Adedi: </label></td>
+      <td> <input type="number" id="num" name="num"required></td>
+    </tr>
+  </table>   
+  <br>     
+  <label for="size">Beden Seçiniz: </label>
+  <input type="range" min="0" max="100" step="20" id="size" name="size" list="sizeList"/><br>
+  <datalist id="sizeList">
+      <option value="0">XS</option>
+      <option value="20">S</option>
+      <option value="40">M</option>
+      <option value="60">L</option>
+      <option value="80">XL</option>
+      <option value="100">XXL</option>
+    </datalist>
+    <br>
+  <button id="secimYap">Seç</button>
+  <input type="text" id="sizeSelect" name="sizeSelect" required>
+  <br><br>
+  <hr>
+  <h2>Teslimat Bilgileri</h2>
+  <table class="formTable">
+    <tr>
+      <td><label for="adres">Adres: </label></td>
+      <td><textarea type="text" id="adres" name="adres" rows="1" required></textarea></td>
+    </tr>
+    <tr>
+      <td><label for="orderWeek">Teslim tarihi için bir aralık seçiniz: </label></td>
+      <td> <input type="week" id="orderWeek" name="orderWeek" required></td>
+    </tr>
+  </table>
+  <br>
+  <hr>
+  <h2>Ödeme Bilgileri</h2>
+<table class="formTable">
+  <tr>
+    <td><label for="namesurname">Ad Soyad: </label></td>
+    <td><input type="text" id="namesurname" name="namesurname" required></td>
+  </tr>
+  <tr>
+    <td> <label for="card">Kart Numarası: </label></td>
+    <td> <input type="tel" maxlength="19" id="card" name="card" placeholder="XXXX-XXXX-XXXX-XXXX" required></td>
+  </tr>
+  <tr>
+    <td><label for="expDate">Son Kullanma Tarihi: </label></td>
+    <td> <input type="month" id="expDate" name="expDate" required></td>
+  </tr>
+  <tr>
+    <td> <label for="cvv">CVV: </label></td>
+    <td> <input type="tel" id="cvv" name="cvv" size="3" maxlength="3" required></td>
+  </tr>
+</table>
+  <br>
+  <input type="button" id="onayla" value="Onayla"/>
+  <br><br>        
+</form>
+<hr>
+<br>   
+<table id="onayTablosu">
+  <thead>
+      <tr>
+          <th colspan="3">SİPARİŞ ONAY</th>
+      </tr>                       
+  </thead>
+  <tbody>
+      <tr>
+       <th rowspan="5">Kişisel Bilgiler</th>
+       <td><label for="tname">Ad: </label></td>
+       <td><input type="text" id="tname" name="name" disabled></td>
+      </tr>
+      <tr>
+          <td><label for="tsurname">Soyad: </label></td>
+          <td> <input type="text" id="tsurname" name="surname" disabled></td>
+      </tr>
+      <tr>
+          <td>  <label for="tbirthday">Doğum Tarihi: </label></td>
+          <td> <input type="text" id="tbirthday" name="birtday" disabled></td>
+      </tr>
+      <tr>
+          <td><label for="temail">Mail Adresi: </label></td>
+          <td><input type="text" id="temail" name="email" disabled></td>
+      </tr>
+    <tr>
+          <td><label for="tphone">Telefon: </label></td>
+          <td> <input type="text" id="tphone" name="phone" disabled></td>
+    </tr>
+    <tr>
+      <th rowspan="5">Sipariş Bilgileri</th>
+      <td><label for="tcolor">Tişört Rengi: </label></td>
+      <td><input type="text" id="tcolor" name="color" disabled></td>
+    </tr>
+    <tr>
+      <td><label for="tfontColor">Yazı Rengi: </label></td>
+      <td><input type="text" id="tfontColor" name="fontColor" disabled></td>
+    </tr>
+    <tr>
+      <td><label for="ttextTshirt">Yazı: </label></td>
+      <td> <input type="text" id="ttextTshirt" name="text" disabled></td>
+    </tr>
+    <tr>
+      <td> <label for="tnum">Tişört Adedi: </label></td>
+      <td> <input type="text" id="tnum" name="num" disabled></td>
+    </tr>
+    <tr>
+      <td>   <label for="tsize">Tişört Bedeni: </label></td>
+      <td> <input type="text" id="tsize" name="size" disabled></label></td>
+    </tr>
+    <tr>
+      <th rowspan="2">Teslimat Bilgileri</th>
+      <td>  <label for="tadres">Adres: </label></td>
+      <td> <input type="text" id="tadres" name="adres"disabled/></td>
+    </tr>
+    <tr>
+      <td><label for="torderWeek">Teslim tarihi: </label></td>
+      <td><input type="text" id="torderWeek" name="orderWeek"disabled></td>
+    </tr>
+    <tr>
+      <th rowspan="4">Ödeme Bilgileri</th>
+      <td><label for="tnamesurname">Ad Soyad: </label></td>
+      <td><input type="text" id="tnamesurname" name="namesurname"disabled></td>
+    </tr>
+    <tr>
+      <td><label for="tcard">Kart Numarası: </label></td>
+      <td><input type="text" id="tcard" name="card"disabled></td>
+    </tr>
+    <tr>
+      <td> <label for="texpDate">Son Kullanma Tarihi: </label></td>
+      <td> <input type="text" id="texpDate" name="expDate"disabled></td>
+    </tr>
+    <tr>
+      <td> <label for="tcvv">CVV: </label></td>
+      <td> <input type="text" id="tcvv" name="cvv" disabled></td>
+    </tr>
+    
+          </tbody>
+      </table><br>
+      <button>Tamamla</button> 
+      <br><br>
+    <script>
+
+
+let secim=document.getElementById("secimYap");
+secim.addEventListener("click", function(e){
+
+  e.preventDefault();
+  const deger = document.getElementById("size").value;  
+                const sonuc = document.getElementById("sizeSelect");    
+
+                switch(true)  {
+                  case deger<20:
+                  sonuc.value="XS";  
+                   break;
+                   case deger<40:
+                  sonuc.value="S";  
+                   break;
+                   case deger<60:
+                   sonuc.value="M";  
+                   break;
+                   case deger<80:
+                   sonuc.value="L";  
+                   break;
+                   case deger<90:
+                   sonuc.value="XL";  
+                   break;
+                   case deger<=100:
+                   sonuc.value="XXL";  
+                   break;
+                }   
+});
+
+let onayla=document.getElementById("onayla");
+onayla.addEventListener("click", function(e){
+
+  e.preventDefault();
+var hasNull=false;
+let inputs=document.querySelectorAll("#form input");
+for(var i of inputs){
+  if(i.value==""){
+     hasNull=true;
+  }
+}
+if(hasNull==true){
+  alert("Lütfen tüm alanları doldurunuz.");
+}
+else{
+
+  document.getElementById("tname").value=document.getElementById("name").value;
+  document.getElementById("tsurname").value=document.getElementById("surname").value;
+  document.getElementById("tbirthday").value=document.getElementById("birthday").value;
+  document.getElementById("temail").value=document.getElementById("email").value;
+  document.getElementById("tphone").value=document.getElementById("phone").value;
+  document.getElementById("tcolor").value=document.getElementById("color").value;
+  document.getElementById("tfontColor").value=document.getElementById("fontColor").value;
+  document.getElementById("ttextTshirt").value=document.getElementById("textTshirt").value;
+  document.getElementById("tnum").value=document.getElementById("num").value;
+  document.getElementById("tsize").value=document.getElementById("sizeSelect").value;
+  document.getElementById("tadres").value=document.getElementById("adres").value;
+  document.getElementById("torderWeek").value=document.getElementById("orderWeek").value;
+  document.getElementById("tnamesurname").value=document.getElementById("namesurname").value;
+  document.getElementById("tcard").value=document.getElementById("card").value;
+  document.getElementById("texpDate").value=document.getElementById("expDate").value;
+  document.getElementById("tcvv").value=document.getElementById("cvv").value;
+}
+
+ });
+
+</script>
+</body>
+</html>
